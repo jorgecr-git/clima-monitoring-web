@@ -146,15 +146,44 @@
 
                     <div class="stat-grid">
 
-                        <div class="stat">
-                            <strong>4,971</strong>
-                            <span>Estaciones</span>
+                        <div class="stat stat-active">
+
+                            <span class="stat-label">
+                                Estaciones activas · ≤30 días
+                            </span>
+
+                            <div class="active-stations-grid">
+
+                                <div>
+                                    <span>Tmax</span>
+                                    <strong id="active-tmax">—</strong>
+                                </div>
+
+                                <div>
+                                    <span>Tmin</span>
+                                    <strong id="active-tmin">—</strong>
+                                </div>
+
+                                <div>
+                                    <span>Prec</span>
+                                    <strong id="active-precip">—</strong>
+                                </div>
+
+                                <div>
+                                    <span>Evap</span>
+                                    <strong id="active-evap">—</strong>
+                                </div>
+
+                            </div>
+
                         </div>
+
 
                         <div class="stat">
                             <strong>4</strong>
                             <span>Variables</span>
                         </div>
+
 
                         <div class="stat">
                             <strong>Diaria</strong>
@@ -209,18 +238,17 @@
             </div>
 
 
-            <div class="placeholder-product">
+            <div class="cyclone-product">
 
-                <div>
-                    <h3>Hotspots de ciclones tropicales</h3>
+                <img
+                    id="cyclone-hotspot"
+                    class="cyclone-hotspot-image"
+                    src=""
+                    alt="Hotspots mensuales de ciclones tropicales"
+                >
 
-                    <p>
-                        Aquí integraremos el producto de hotspots que
-                        ya calculamos a partir del registro histórico
-                        de trayectorias.
-                    </p>
-
-                    <span>Producto en preparación</span>
+                <div id="cyclone-offseason" class="cyclone-offseason">
+                    Producto mensual disponible de mayo a noviembre.
                 </div>
 
             </div>
@@ -352,14 +380,14 @@
         <div class="footer-development">
             Sitio en desarrollo ·
             Desarrollado por
-            <strong>Jorge Cortés Ramos</strong>
+            <strong>Dr. Jorge Cortés Ramos</strong>
         </div>
 
     </footer>
 
 
-    <!-- =========================================================
-         TABS
+        <!-- =========================================================
+         TABS + CLICOM STATUS
     ========================================================== -->
     <script>
 
@@ -391,6 +419,119 @@
                 behavior: 'smooth'
             });
         }
+
+
+        function updateActiveStations() {
+
+            const iframe = document.querySelector(
+                'iframe[src="maps/clicom_availability_latest.html"]'
+            );
+
+            if (!iframe) return;
+
+            iframe.addEventListener("load", function () {
+
+                try {
+
+                    const stations =
+                        iframe.contentWindow.eval("stations");
+
+                    const countActive = (variable) => {
+
+                        return stations.filter(station => {
+
+                            const lag =
+                                station.v?.[variable]?.l;
+
+                            return lag !== null &&
+                                   lag !== undefined &&
+                                   lag <= 30;
+
+                        }).length;
+                    };
+
+                    document.getElementById("active-tmax").textContent =
+                        countActive("tmax").toLocaleString();
+
+                    document.getElementById("active-tmin").textContent =
+                        countActive("tmin").toLocaleString();
+
+                    document.getElementById("active-precip").textContent =
+                        countActive("precip").toLocaleString();
+
+                    document.getElementById("active-evap").textContent =
+                        countActive("evap").toLocaleString();
+
+                } catch (error) {
+
+                    console.error(
+                        "No fue posible leer la disponibilidad CLICOM:",
+                        error
+                    );
+                }
+            });
+        }
+
+
+        updateActiveStations();
+
+        function showSection(sectionId, button) {
+
+            const sections =
+                document.querySelectorAll('.module-section');
+
+            const buttons =
+                document.querySelectorAll('.nav-item');
+
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            buttons.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            document
+                .getElementById(sectionId)
+                .classList
+                .add('active-section');
+
+            button.classList.add('active');
+
+            window.scrollTo({
+                top: document.querySelector('.climate-nav').offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+        function updateCycloneHotspot() {
+
+            const hotspots = {
+                5:  "assets/tropical_cyclones/hotspots_05_may.png",
+                6:  "assets/tropical_cyclones/hotspots_06_jun.png",
+                7:  "assets/tropical_cyclones/hotspots_07_jul.png",
+                8:  "assets/tropical_cyclones/hotspots_08_aug.png",
+                9:  "assets/tropical_cyclones/hotspots_09_sep.png",
+                10: "assets/tropical_cyclones/hotspots_10_oct.png",
+                11: "assets/tropical_cyclones/hotspots_11_nov.png"
+            };
+
+            const currentMonth = new Date().getMonth() + 1;
+
+            const image = document.getElementById("cyclone-hotspot");
+            const offseason = document.getElementById("cyclone-offseason");
+
+            if (hotspots[currentMonth]) {
+                image.src = hotspots[currentMonth];
+                image.style.display = "block";
+                offseason.style.display = "none";
+            } else {
+                image.style.display = "none";
+                offseason.style.display = "block";
+            }
+        }
+
+        updateCycloneHotspot();
 
     </script>
 

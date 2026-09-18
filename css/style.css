@@ -87,13 +87,11 @@ body {
 }
 
 .hero-brand {
-    width: min(520px, 42vw);
+    width: 230px;
     flex-shrink: 0;
-
-    padding: 12px 18px;
-
+    padding: 8px 12px;
     background: rgba(255, 255, 255, 0.96);
-    border-radius: 6px;
+    border-radius: 5px;
 }
 
 .institutional-logo {
@@ -504,4 +502,69 @@ footer div:first-child span {
     .footer-development {
         text-align: left;
     }
+}
+
+/* =========================================================
+   CLICOM ACTIVE STATIONS
+========================================================= */
+
+.stat-active {
+    grid-column: 1 / -1;
+    padding: 18px;
+}
+
+.stat-active .stat-label {
+    display: block;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.active-stations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.active-stations-grid div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 5px;
+}
+
+.active-stations-grid span {
+    font-size: 0.85rem;
+}
+
+.active-stations-grid strong {
+    font-size: 1.35rem;
+}
+
+
+/* =========================================================
+   TROPICAL CYCLONES
+========================================================= */
+
+.cyclone-product {
+    width: 100%;
+    text-align: center;
+}
+
+.cyclone-hotspot-image {
+    display: block;
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.cyclone-offseason {
+    display: none;
+    padding: 60px 20px;
+    color: #607080;
+    font-size: 1rem;
 }
