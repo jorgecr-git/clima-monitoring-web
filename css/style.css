@@ -23,29 +23,34 @@ body {
 ========================================================= */
 
 .hero {
-    min-height: 245px;
+    position: relative;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(8, 42, 65, 0.97),
-            rgba(8, 53, 79, 0.84)
-        );
+    min-height: 210px;
 
-    display: flex;
-    align-items: stretch;
+    background-image: url("../assets/logos/fondo_sitio_eventos_extremos.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .hero-overlay {
-    width: 100%;
+    min-height: 210px;
+
     display: flex;
     align-items: center;
+
+    background: linear-gradient(
+        90deg,
+        rgba(4, 38, 63, 0.90) 0%,
+        rgba(4, 38, 63, 0.72) 38%,
+        rgba(4, 38, 63, 0.30) 68%,
+        rgba(4, 38, 63, 0.08) 100%
+    );
 }
 
 .hero-content {
     width: 92%;
     max-width: 1600px;
-
     margin: auto;
 
     display: flex;
@@ -72,24 +77,15 @@ body {
     margin: 0;
 
     font-size: 1.2rem;
-    color: rgba(255,255,255,0.82);
-}
-
-.hero-brand {
-    width: 260px;
-
-    padding-left: 30px;
-
-    border-left:
-        1px solid rgba(255,255,255,0.30);
-
-    color: white;
+    color: rgba(255, 255, 255, 0.82);
 }
 
 .hero-brand {
     width: 230px;
     flex-shrink: 0;
+
     padding: 8px 12px;
+
     background: rgba(255, 255, 255, 0.96);
     border-radius: 5px;
 }

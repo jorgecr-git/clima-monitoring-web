@@ -498,10 +498,12 @@
 
             button.classList.add('active');
 
+            /*
             window.scrollTo({
                 top: document.querySelector('.climate-nav').offsetTop,
                 behavior: 'smooth'
             });
+            */
         }
 
         function updateCycloneHotspot() {
@@ -532,6 +534,14 @@
         }
 
         updateCycloneHotspot();
+
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
+        }
+
+        window.addEventListener("load", function () {
+            window.scrollTo(0, 0);
+        });
 
     </script>
 
