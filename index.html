@@ -5,39 +5,394 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CICESE | Monitoreo Climático</title>
+    <title>CICESE | Sistema de Monitoreo Climático</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Monitoreo Climático</h1>
+    <!-- =========================================================
+         HERO / ENCABEZADO
+    ========================================================== -->
+    <header class="hero">
 
-        <p>
-            Sistema de vigilancia de condiciones climáticas
-            y eventos extremos en México
-        </p>
+        <div class="hero-overlay">
+
+            <div class="hero-content">
+
+                <div class="hero-text">
+                    <h1>Sistema de Monitoreo Climático</h1>
+
+                    <p>
+                        Datos · Eventos extremos · Análisis climático
+                    </p>
+                </div>
+
+                <div class="hero-brand">
+                    <div class="brand-name">CICESE</div>
+                    <div class="brand-subtitle">
+                        Centro de Investigación Científica y de Educación
+                        Superior de Ensenada
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </header>
 
-    <main>
 
-        <section>
-            <h2>Red de observación CLICOM</h2>
+    <!-- =========================================================
+         NAVEGACIÓN PRINCIPAL
+    ========================================================== -->
+    <nav class="climate-nav">
 
-            <p>
-                Disponibilidad reciente de datos en estaciones
-                climatológicas utilizadas por el sistema de monitoreo.
-            </p>
+        <button
+            class="nav-item active"
+            data-section="datos"
+            onclick="showSection('datos', this)"
+        >
+            <span class="nav-icon">▦</span>
+            <span>Datos</span>
+        </button>
 
-            <iframe
-                src="maps/clicom_availability_latest.html"
-                title="Disponibilidad reciente de estaciones CLICOM">
-            </iframe>
+        <button
+            class="nav-item"
+            data-section="ciclones"
+            onclick="showSection('ciclones', this)"
+        >
+            <span class="nav-icon">◉</span>
+            <span>Ciclones tropicales</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-section="calor"
+            onclick="showSection('calor', this)"
+        >
+            <span class="nav-icon">♨</span>
+            <span>Ondas de calor</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-section="viento"
+            onclick="showSection('viento', this)"
+        >
+            <span class="nav-icon">≋</span>
+            <span>Viento costero</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-section="precipitacion"
+            onclick="showSection('precipitacion', this)"
+        >
+            <span class="nav-icon">☂</span>
+            <span>Precipitación</span>
+        </button>
+
+    </nav>
+
+
+    <!-- =========================================================
+         CONTENIDO
+    ========================================================== -->
+    <main class="dashboard">
+
+
+        <!-- =====================================================
+             DATOS
+        ====================================================== -->
+        <section id="datos" class="module-section active-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        RED DE OBSERVACIÓN
+                    </span>
+
+                    <h2>
+                        Disponibilidad de datos CLICOM
+                    </h2>
+
+                    <p>
+                        Estado reciente de la información meteorológica
+                        disponible por estación en México.
+                    </p>
+                </div>
+
+                <div class="update-badge">
+                    Actualización operacional
+                </div>
+
+            </div>
+
+
+            <div class="data-layout">
+
+                <aside class="data-info">
+
+                    <h3>Red CLICOM</h3>
+
+                    <p>
+                        Consulta la disponibilidad reciente de datos
+                        meteorológicos de la red de estaciones CLICOM.
+                    </p>
+
+
+                    <div class="stat-grid">
+
+                        <div class="stat">
+                            <strong>4,971</strong>
+                            <span>Estaciones</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>4</strong>
+                            <span>Variables</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>Diaria</strong>
+                            <span>Actualización</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="variable-list">
+                        Tmax · Tmin · Precipitación · Evaporación
+                    </div>
+
+                </aside>
+
+
+                <div class="map-container">
+
+                    <iframe
+                        src="maps/clicom_availability_latest.html"
+                        title="Disponibilidad de datos CLICOM"
+                        loading="lazy"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
         </section>
 
+
+        <!-- =====================================================
+             CICLONES TROPICALES
+        ====================================================== -->
+        <section id="ciclones" class="module-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        EVENTOS EXTREMOS
+                    </span>
+
+                    <h2>Ciclones tropicales</h2>
+
+                    <p>
+                        Distribución espacial histórica y regiones de
+                        mayor recurrencia de ciclones tropicales.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="placeholder-product">
+
+                <div>
+                    <h3>Hotspots de ciclones tropicales</h3>
+
+                    <p>
+                        Aquí integraremos el producto de hotspots que
+                        ya calculamos a partir del registro histórico
+                        de trayectorias.
+                    </p>
+
+                    <span>Producto en preparación</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             ONDAS DE CALOR
+        ====================================================== -->
+        <section id="calor" class="module-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        TEMPERATURA EXTREMA
+                    </span>
+
+                    <h2>Ondas de calor</h2>
+
+                    <p>
+                        Monitoreo de eventos de temperatura extrema
+                        basado en umbrales climatológicos.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="placeholder-product">
+                <div>
+                    <h3>Monitoreo de ondas de calor</h3>
+                    <p>
+                        Los productos operacionales serán incorporados
+                        progresivamente a este módulo.
+                    </p>
+                    <span>En desarrollo</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             VIENTO
+        ====================================================== -->
+        <section id="viento" class="module-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        CIRCULACIÓN ATMOSFÉRICA
+                    </span>
+
+                    <h2>Viento costero</h2>
+
+                    <p>
+                        Monitoreo de anomalías del viento en el Golfo
+                        de California y Pacífico de Baja California Sur.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="placeholder-product">
+                <div>
+                    <h3>Anomalías de viento costero</h3>
+                    <p>
+                        Este módulo incorporará los productos ERA5
+                        actualmente en desarrollo.
+                    </p>
+                    <span>En desarrollo</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PRECIPITACIÓN
+        ====================================================== -->
+        <section id="precipitacion" class="module-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        PRECIPITACIÓN
+                    </span>
+
+                    <h2>Precipitación</h2>
+
+                    <p>
+                        Vigilancia de precipitación, anomalías y
+                        condiciones hidroclimáticas.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="placeholder-product">
+                <div>
+                    <h3>Monitoreo de precipitación</h3>
+                    <p>
+                        Los productos operacionales serán incorporados
+                        conforme avance el desarrollo del sistema.
+                    </p>
+                    <span>En desarrollo</span>
+                </div>
+            </div>
+
+        </section>
+
+
     </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer>
+
+        <div>
+            <strong>CICESE</strong>
+            <span>Sistema de Monitoreo Climático</span>
+        </div>
+
+        <div class="footer-development">
+            Sitio en desarrollo ·
+            Desarrollado por
+            <strong>Jorge Cortés Ramos</strong>
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         TABS
+    ========================================================== -->
+    <script>
+
+        function showSection(sectionId, button) {
+
+            const sections =
+                document.querySelectorAll('.module-section');
+
+            const buttons =
+                document.querySelectorAll('.nav-item');
+
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            buttons.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            document
+                .getElementById(sectionId)
+                .classList
+                .add('active-section');
+
+            button.classList.add('active');
+
+            window.scrollTo({
+                top: document.querySelector('.climate-nav').offsetTop,
+                behavior: 'smooth'
+            });
+        }
+
+    </script>
 
 </body>
 
