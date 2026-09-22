@@ -54,17 +54,32 @@
             data-section="datos"
             onclick="showSection('datos', this)"
         >
-            <span class="nav-icon">▦</span>
+            <span class="nav-icon">
+                <img
+                    src="assets/logos/datos.png"
+                    alt=""
+                    class="nav-icon-image"
+                >
+            </span>
             <span>Datos</span>
         </button>
 
         <button
             class="nav-item"
-            data-section="ciclones"
-            onclick="showSection('ciclones', this)"
+            data-section="temperatura"
+            onclick="showSection('temperatura', this)"
         >
-            <span class="nav-icon">◉</span>
-            <span>Ciclones tropicales</span>
+            <span class="nav-icon">●</span>
+            <span>Temperatura máxima</span>
+        </button>
+
+        <button
+            class="nav-item"
+            data-section="precipitacion"
+            onclick="showSection('precipitacion', this)"
+        >
+            <span class="nav-icon">☂</span>
+            <span>Precipitación</span>
         </button>
 
         <button
@@ -78,20 +93,20 @@
 
         <button
             class="nav-item"
+            data-section="ciclones"
+            onclick="showSection('ciclones', this)"
+        >
+            <span class="nav-icon">◉</span>
+            <span>Ciclones tropicales</span>
+        </button>
+
+        <button
+            class="nav-item"
             data-section="viento"
             onclick="showSection('viento', this)"
         >
             <span class="nav-icon">≋</span>
             <span>Viento costero</span>
-        </button>
-
-        <button
-            class="nav-item"
-            data-section="precipitacion"
-            onclick="showSection('precipitacion', this)"
-        >
-            <span class="nav-icon">☂</span>
-            <span>Precipitación</span>
         </button>
 
     </nav>
@@ -209,6 +224,46 @@
                     ></iframe>
 
                 </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+            TEMPERATURA MÁXIMA
+        ====================================================== -->
+        <section id="temperatura" class="module-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        TEMPERATURA
+                    </span>
+
+                    <h2>Temperatura máxima</h2>
+
+                    <p>
+                        Monitoreo de la temperatura máxima reciente
+                        registrada por estaciones automáticas del SMN.
+                    </p>
+                </div>
+
+                <div class="update-badge">
+                    Actualización operacional
+                </div>
+
+            </div>
+
+
+            <div class="current-product">
+
+                <img
+                    class="current-product-image"
+                    src="products/current_temperature/current_tmax_latest.png"
+                    alt="Temperatura máxima reciente en México"
+                >
 
             </div>
 

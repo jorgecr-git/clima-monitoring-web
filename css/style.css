@@ -165,6 +165,13 @@ body {
     font-size: 1.5rem;
 }
 
+.nav-icon-image {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin: 0 auto;
+}
 
 /* =========================================================
    DASHBOARD
@@ -563,4 +570,26 @@ footer div:first-child span {
     padding: 60px 20px;
     color: #607080;
     font-size: 1rem;
+}
+
+
+/* =========================================================
+   CURRENT TEMPERATURE
+========================================================= */
+
+.current-product {
+    width: 100%;
+    padding: 24px;
+    background: white;
+    border-radius: 8px;
+    box-shadow:
+        0 3px 15px rgba(18,52,71,0.08);
+}
+
+.current-product-image {
+    display: block;
+    width: 100%;
+    max-width: 1250px;
+    height: auto;
+    margin: 0 auto;
 }
