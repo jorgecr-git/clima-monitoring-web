@@ -111,6 +111,21 @@
 
         <button
             class="nav-item"
+            data-section="sequia"
+            onclick="showSection('sequia', this)"
+        >
+            <span class="nav-icon">
+                <img
+                    src="assets/logos/sequia.png"
+                    alt=""
+                    class="nav-icon-image"
+                >
+            </span>
+            <span>Sequía</span>
+        </button>
+
+        <button
+            class="nav-item"
             data-section="ciclones"
             onclick="showSection('ciclones', this)"
         >
@@ -299,6 +314,16 @@
 
         </section>
 
+
+        <!-- SEQUÍA | CHIRPS -->
+        <section id="sequia" class="module-section">
+            <div class="section-heading"><div>
+                <span class="section-label">CONDICIONES HIDROCLIMÁTICAS</span>
+                <h2>Sequía</h2>
+                <p>Exploración histórica de anomalías y déficits de precipitación en México a partir de datos CHIRPS.</p>
+            </div></div>
+            <div class="drought-product"><iframe src="products/drought/chirps/" title="Visualizador histórico interactivo CHIRPS: anomalías y déficit P20" loading="lazy"></iframe></div>
+        </section>
 
         <!-- =====================================================
              CICLONES TROPICALES

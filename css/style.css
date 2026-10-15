@@ -593,3 +593,17 @@ footer div:first-child span {
     height: auto;
     margin: 0 auto;
 }
+/* CHIRPS drought visualizer */
+.drought-product {width:100%;background:white;border-radius:8px;overflow:hidden;box-shadow:0 3px 15px rgba(18,52,71,.08)}
+.drought-product iframe {display:block;width:100%;height:1050px;border:0}
+@media(max-width:900px){.drought-product iframe{height:850px}}
+
+
+/* =========================================================
+   ICONO DE SEQUÍA
+========================================================= */
+
+.nav-item[data-section="sequia"] .nav-icon-image {
+    width: 48px;
+    height: 48px;
+}
